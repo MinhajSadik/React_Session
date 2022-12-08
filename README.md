@@ -19,7 +19,8 @@ An element describes what you want to see on the screen:
 
 const element = <h1>Hello, world</h1>;
 
-Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+Unlike browser DOM elements, React elements are plain objects,
+and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
 ```
 
 [Official Rendering Elements Link](https://reactjs.org/docs/rendering-elements.html)
@@ -27,7 +28,9 @@ Unlike browser DOM elements, React elements are plain objects, and are cheap to 
 ## Components
 
 ```Components
-Components are the building blocks of React applications. They let us split the UI into independent, reusable pieces, and think about each piece in isolation.
+Components are the building blocks of React applications.
+They let us split the UI into independent, reusable pieces,
+and think about each piece in isolation.
 ```
 
 [Official React Component Link](https://reactjs.org/docs/react-component.html)
@@ -35,7 +38,10 @@ Components are the building blocks of React applications. They let us split the 
 ## Props
 
 ```Props
-Props (short for “properties”) and state are both plain JavaScript objects. While both hold information that influences the output of component render, they are different in one important way: props get passed to the component (similar to function parameters) whereas state is managed within the component (similar to variables declared within a function).
+Props (short for “properties”) and state are both plain JavaScript objects.
+While both hold information that influences the output of component render,
+they are different in one important way: props get passed to the component (similar to function parameters)
+whereas state is managed within the component (similar to variables declared within a function).
 ```
 
 [Official React Props Link](https://www.robinwieruch.de/react-pass-props-to-component/)
@@ -45,7 +51,10 @@ Props (short for “properties”) and state are both plain JavaScript objects. 
 ## State
 
 ```State
-State and props (short for “properties”)  are both plain JavaScript objects. While both hold information that influences the output of component render, they are different in one important way: props get passed to the component (similar to function parameters) whereas state is managed within the component (similar to variables declared within a function).
+State and props (short for “properties”)  are both plain JavaScript objects.
+While both hold information that influences the output of component render,
+they are different in one important way: props get passed to the component (similar to function parameters)
+whereas state is managed within the component (similar to variables declared within a function).
 ```
 
 [Official React State Link](https://reactjs.org/docs/faq-state.html)
@@ -53,7 +62,9 @@ State and props (short for “properties”)  are both plain JavaScript objects.
 ## Lifecycle
 
 ```Lifecycle
-Each component has several “lifecycle methods” that you can override to run code at particular times in the process. You can use this lifecycle diagram as a cheat sheet. In the list below, commonly used lifecycle methods are marked as bold. The rest of them exist for relatively rare use cases.
+Each component has several “lifecycle methods” that you can override to run code at particular times in the process.
+You can use this lifecycle diagram as a cheat sheet. In the list below,
+commonly used lifecycle methods are marked as bold. The rest of them exist for relatively rare use cases.
 ```
 
 [Official React Lifecycle Link](https://reactjs.org/docs/react-component.html#the-component-lifecycle)
