@@ -1,14 +1,16 @@
 import './App.css';
-import { First } from './Components/First/First';
-import Welcome from './Components/First/Welcome';
+import Users from './Components/User/Users';
+import Welcome from './Components/Welcome';
 
 function App() {
-  const messages = "Times It firm"
+  const users = [1, 2, 3, 4, 5]
+
   return (
     <div className="App">
-      <Welcome message={messages} >
-        <First />
-      </Welcome>
+      {
+        users.map((user, index) => <Users key={index} />)
+      }
+      <Welcome />
     </div >
   );
 }
