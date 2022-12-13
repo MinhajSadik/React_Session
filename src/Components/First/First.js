@@ -1,12 +1,11 @@
 
-export const First = (props) => {
-    const { allText } = props
+export const First = ({ allText }) => {
 
     return (
         <div>
             {
-                allText.map((item, index) => (
-                    <li key={index}>{item}</li>
+                allText.map((text, index) => (
+                    <li key={index}> {text} </li>
                 ))
             }
         </div>

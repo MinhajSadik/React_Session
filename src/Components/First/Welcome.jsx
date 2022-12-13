@@ -1,30 +1,41 @@
-import React from "react";
+import { useState } from "react";
+import { First } from "./First";
+
+const initialState = {
+  title: "",
+};
 
 function Welcome() {
-  const [text, setText] = React.useState("");
-  const [allText, setAllText] = React.useState([]);
+  const [text, setText] = useState(initialState);
+
+  const { title } = text;
+
+  const [allText, setAllText] = useState([]);
 
   function handleAdd(e) {
-    allText.push(text);
+    allText.push(title);
     setText("");
   }
 
   return (
     <div>
-      <h1>Welcome to our</h1>
-      <meter max={"100"} value={"10"} />
-      <input
-        name="text"
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
+      <h1>Welcome</h1>
 
+      {/* <meter max={"100"} value={"10"} /> */}
+      <input
+        name="title"
+        type="text"
+        value={title}
+        onChange={(e) =>
+          setText({
+            ...text,
+            title: e.target.value,
+          })
+        }
+      />
       <button onClick={handleAdd}>Add</button>
-      {allText.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
-      {/* <First allText={allText} /> */}
+
+      <First allText={allText} />
     </div>
   );
 }
