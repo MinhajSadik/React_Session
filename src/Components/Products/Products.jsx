@@ -4,7 +4,8 @@ import Carts from "./Carts/Carts";
 export default function Products() {
   const [loading, setLoading] = React.useState(false);
   const [activeColor, setActiveColor] = React.useState(null);
-  const products = "products list";
+  const products = ["products list"];
+
   return (
     <React.Fragment>
       {loading ? (
