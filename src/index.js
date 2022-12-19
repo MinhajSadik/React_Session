@@ -40,9 +40,7 @@ const MyReact = {
 };
 
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <App />
 );
 
 const Counter = () => {
