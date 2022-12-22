@@ -1,5 +1,6 @@
 import CheckPropTypes from "prop-types";
 import React from "react";
+import Categories from "./Categories";
 export default function Products({ color, width, path, getColors }) {
   const categories = [
     {
@@ -46,11 +47,10 @@ export default function Products({ color, width, path, getColors }) {
     },
   ];
   return (
-    <div style={{ color, width }}>
-      {/* {categories.map((category) => (
+    <div>
+      {categories.map((category) => (
         <Categories key={category.id} category={category} />
-      ))} */}
-      asdf
+      ))}
     </div>
   );
 }
