@@ -4,9 +4,15 @@ export default function MovingDot() {
     x: 0,
     y: 0,
   });
+
   return (
     <div
-      onPointerMove={(e) => {}}
+      onPointerMove={(e) =>
+        setPosition({
+          x: e.clientX,
+          y: e.clientY,
+        })
+      }
       style={{
         position: "relative",
         width: "100vw",
