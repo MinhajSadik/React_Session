@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class ProductClass extends Component {
+export default class ProductsClass extends Component {
   state = {
     products: [
       { id: 1, name: "profile", title: "Profile" },

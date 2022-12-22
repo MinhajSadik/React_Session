@@ -1,7 +1,6 @@
+import CheckPropTypes from "prop-types";
 import React from "react";
-import Categories from "./Categories";
-
-export default function Products() {
+export default function Products({ color, width, path, getColors }) {
   const categories = [
     {
       id: "erlkejlkejwr93993klsaf",
@@ -47,10 +46,21 @@ export default function Products() {
     },
   ];
   return (
-    <div>
-      {categories.map((category) => (
+    <div style={{ color, width }}>
+      {/* {categories.map((category) => (
         <Categories key={category.id} category={category} />
-      ))}
+      ))} */}
+      asdf
     </div>
   );
 }
+
+Products.propTypes = {
+  color: CheckPropTypes.string,
+  width: CheckPropTypes.string,
+  path: CheckPropTypes.string,
+};
+
+Products.defaultProps = {
+  color: "green",
+};

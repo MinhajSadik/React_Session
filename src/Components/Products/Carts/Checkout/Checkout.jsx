@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function Checkout({ getColor, activeColor, setActiveColor }) {
+export default function Checkout({ getColor }) {
+  const [activeColor, setActiveColor] = React.useState();
   function handleInput(e) {
     const { value } = e.target;
     setActiveColor(value);
