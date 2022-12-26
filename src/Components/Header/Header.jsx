@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-export default function Header(props) {
+export default function Header({ children }) {
   return (
     <div
       style={{
@@ -10,7 +10,7 @@ export default function Header(props) {
         paddingTop: "14px",
       }}
     >
-      {props.children}
+      {children}
     </div>
   );
 }

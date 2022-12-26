@@ -38,9 +38,9 @@ const MyReact = {
     root.render(<this.component />, this.rootElement);
   }
 };
-const color = "red"
+
 root.render(
-  <App color={color} />
+  <App />
 );
 
 const Counter = () => {
