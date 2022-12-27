@@ -26,7 +26,7 @@ function App() {
   console.log(REACT_APP_API_URL)
 
   return (
-    <div style={{ color: theme === "white" ? 'white' : 'black', backgroundColor: theme === 'white' ? 'black' : 'white' }}>
+    <div>
       <UserContext.Provider value={userInfo}>
         <SwitchThemeContext.Provider value={themeInfo}>
           <Layout>
