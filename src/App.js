@@ -10,22 +10,25 @@ function App() {
   const [isLoggedIn, setLoggedIn] = React.useState(true);
   const [theme, setTheme] = React.useState('white')
 
-  const userCredential = {
+  const userInfo = {
     isLoggedIn: isLoggedIn
   }
 
-  const themeProperties = {
+  const themeInfo = {
     theme: theme,
     color: 'black',
     backgorundColor: 'white',
     setTheme: setTheme
   }
 
+  const { REACT_APP_API_URL } = process.env
+
+  console.log(REACT_APP_API_URL)
 
   return (
-    <div className=''>
-      <UserContext.Provider value={userCredential}>
-        <SwitchThemeContext.Provider value={themeProperties}>
+    <div style={{ color: theme === "white" ? 'white' : 'black', backgroundColor: theme === 'white' ? 'black' : 'white' }}>
+      <UserContext.Provider value={userInfo}>
+        <SwitchThemeContext.Provider value={themeInfo}>
           <Layout>
             <Posts />
           </Layout>
