@@ -1,43 +1,36 @@
-import React, { createContext, useEffect, useState } from 'react';
-import Hooks from './Components/Hooks';
+import React, { createContext } from 'react';
+import './App.css';
+import Layout from './Components/Layout/Layout';
+import Posts from './Components/Posts/Posts';
 
-export const StylesContext = createContext('black')
-export const DataContext = createContext()
+
+export const SwitchThemeContext = createContext()
+export const UserContext = createContext()
 function App() {
-  const [showMe, setShowMe] = useState(true)
+  const [isLoggedIn, setLoggedIn] = React.useState(true);
+  const [theme, setTheme] = React.useState('white')
 
-  const [posts, setPosts] = useState([])
-  const styles = {
-    color: "red",
-    fontSize: "42px",
-    backgroundColor: "hotpink",
+  const userCredential = {
+    isLoggedIn: isLoggedIn
   }
 
-  useEffect(() => {
-    fetch("http://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data))
-  }, [])
-
+  const themeProperties = {
+    theme: theme,
+    color: 'black',
+    backgorundColor: 'white',
+    setTheme: setTheme
+  }
 
 
   return (
-    <div className="App" >
-      <StylesContext.Provider value={styles}>
-        <DataContext.Provider value={posts}>
-          {/* <Header >
-            <Navbar />
-          </Header> */}
-        </DataContext.Provider>
-      </StylesContext.Provider>
-
-      {
-        showMe && <Hooks />
-      }
-
-      <button onClick={() => setShowMe((prevShow) => !prevShow)}>
-        {showMe ? "Hide Component" : "Show Compoent"}
-      </button>
+    <div className=''>
+      <UserContext.Provider value={userCredential}>
+        <SwitchThemeContext.Provider value={themeProperties}>
+          <Layout>
+            <Posts />
+          </Layout>
+        </SwitchThemeContext.Provider>
+      </UserContext.Provider>
     </div >
   );
 }

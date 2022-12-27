@@ -1,0 +1,27 @@
+.headerWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.headerWrapper img {
+  width: 72px;
+  padding-top: 20px;
+}
+
+.navItem {
+  display: inline-block;
+  padding: 0 16px;
+}
+
+.navItem a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.navForm input,
+button {
+  margin-left: 16px;
+}
