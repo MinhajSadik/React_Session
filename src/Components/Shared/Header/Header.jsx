@@ -12,6 +12,8 @@ export default function Header() {
     theme.setTheme(color);
   }
 
+  console.log(theme.theme);
+
   return (
     <nav className={headerModule.headerWrapper}>
       <div>
@@ -29,9 +31,8 @@ export default function Header() {
         <li className={headerModule.navItem}>
           <a href="/blog">Blog</a>
         </li>
-        <li className={headerModule.navItem}>
-          <a href="/contact">Contact</a>
-        </li>
+        <li className={headerModule.navItem}>Contact</li>
+
         {user.isLoggedIn && (
           <li className={headerModule.navItem}>
             <a href="/dashboard">Dashboard</a>
@@ -46,12 +47,12 @@ export default function Header() {
           <button type="button">Login</button>
         )}
 
-        {theme.theme === "white" ? (
-          <button onClick={() => swtichColor("black")} type="button">
+        {theme.theme === "light" ? (
+          <button onClick={() => swtichColor("dark")} type="button">
             <BsFillMoonFill size={"24px"} />
           </button>
         ) : (
-          <button onClick={() => swtichColor("white")}>
+          <button onClick={() => swtichColor("light")}>
             <BsSunFill size={"24px"} />
           </button>
         )}

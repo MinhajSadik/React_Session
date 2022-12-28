@@ -14,7 +14,8 @@
   padding: 0 16px;
 }
 
-.navItem a {
+.navItem a,
+li {
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
