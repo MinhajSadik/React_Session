@@ -12,8 +12,6 @@ export default function Header() {
     theme.setTheme(color);
   }
 
-  console.log(theme.theme);
-
   return (
     <nav className={headerModule.headerWrapper}>
       <div>

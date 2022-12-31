@@ -8,12 +8,12 @@ import Login from './Components/Users/Login';
 export const SwitchThemeContext = createContext()
 export const UserContext = createContext()
 function App() {
-  const [isLoggedIn, setLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
   const [theme, setTheme] = React.useState("light")
 
   const userInfo = {
     isLoggedIn: isLoggedIn,
-    setLoggedIn: setLoggedIn
+    setIsLoggedIn: setIsLoggedIn
   }
 
   const themeInfo = {
