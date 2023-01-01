@@ -1,5 +1,4 @@
 import React, { createContext } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Layout from './Components/Layout/Layout';
 import Posts from './Components/Posts/Posts';
