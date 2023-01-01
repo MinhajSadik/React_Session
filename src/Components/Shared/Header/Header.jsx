@@ -7,9 +7,14 @@ import headerModule from "./Header.module.css";
 export default function Header() {
   const user = useContext(UserContext);
   const theme = useContext(SwitchThemeContext);
+  const { user: userInfo } = user;
 
   function swtichColor(color) {
     theme.setTheme(color);
+  }
+
+  function handleLogout() {
+    sessionStorage.removeItem("user");
   }
 
   return (
@@ -31,7 +36,7 @@ export default function Header() {
         </li>
         <li className={headerModule.navItem}>Contact</li>
 
-        {user.isLoggedIn && (
+        {userInfo?.token && (
           <li className={headerModule.navItem}>
             <a href="/dashboard">Dashboard</a>
           </li>
@@ -39,8 +44,10 @@ export default function Header() {
       </ul>
       <div className={headerModule.navForm}>
         <input type="text" />
-        {user.isLoggedIn ? (
-          <button type="button">Logout</button>
+        {userInfo?.token ? (
+          <button type="button" onClick={handleLogout}>
+            Logout
+          </button>
         ) : (
           <button type="button">Login</button>
         )}
@@ -54,6 +61,8 @@ export default function Header() {
             <BsSunFill size={"24px"} />
           </button>
         )}
+
+        <span>{userInfo?.result?.name}</span>
       </div>
     </nav>
   );

@@ -4,10 +4,12 @@ import styles from "./Post.module.css";
 
 export default function Post({ post }) {
   const user = useContext(UserContext);
-  console.log(post);
+
+  const { user: userInfo } = user;
+
   return (
     <>
-      {user.isLoggedIn && (
+      {userInfo?.token && (
         <div className={styles.wrapper}>
           <div className={styles.card}>
             <div className={styles.card_banner}>

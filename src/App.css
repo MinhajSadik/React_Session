@@ -7,3 +7,11 @@
   background-color: white;
   color: black;
 }
+
+.lightTheme a {
+  color: black;
+}
+
+.darkTheme a {
+  color: white;
+}
