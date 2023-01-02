@@ -8,8 +8,9 @@ import Register from './Components/Users/Register';
 
 export const SwitchThemeContext = createContext()
 export const UserContext = createContext()
-function App() {
 
+
+function App() {
   const [theme, setTheme] = React.useState("light")
 
   const sessionUser = sessionStorage.getItem('user')
