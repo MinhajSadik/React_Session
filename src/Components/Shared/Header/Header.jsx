@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
-import { SwitchThemeContext, UserContext } from "../../../App";
 import Logo from "../../../assets/proxy.jpg";
+import { ThemeContext, UserContext } from "../../../contexts/contexts";
 import headerModule from "./Header.module.css";
 
 export default function Header() {
   const user = useContext(UserContext);
-  const theme = useContext(SwitchThemeContext);
+  const theme = useContext(ThemeContext);
+
   const { user: userInfo } = user;
 
   function swtichColor(color) {
@@ -52,7 +52,7 @@ export default function Header() {
           <button type="button">Login</button>
         )}
 
-        {theme.theme === "light" ? (
+        {/* {theme.theme === "light" ? (
           <button onClick={() => swtichColor("dark")} type="button">
             <BsFillMoonFill size={"24px"} />
           </button>
@@ -60,9 +60,16 @@ export default function Header() {
           <button onClick={() => swtichColor("light")}>
             <BsSunFill size={"24px"} />
           </button>
-        )}
+        )} */}
+        <select name="" id="" onChange={(e) => swtichColor(e.target.value)}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="red">Red</option>
+        </select>
 
         <span>{userInfo?.result?.name}</span>
+
+        <span className="bg-danger">User</span>
       </div>
     </nav>
   );

@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../App";
+import React, { useContext, useRef } from "react";
+import { UserContext } from "../../contexts/contexts";
 import "./Login.css";
 
 export default function Login() {
   const user = useContext(UserContext);
+  const inputRef = useRef(null);
+
+  function handleFocusInput() {
+    inputRef.current?.focus();
+  }
 
   const [loginInfo, setLoginInfo] = React.useState({
     email: "",
@@ -22,6 +27,7 @@ export default function Login() {
           body: JSON.stringify(loginInfo),
         }
       );
+
       const result = await response.json();
 
       sessionStorage.setItem("user", JSON.stringify(result));
@@ -32,6 +38,13 @@ export default function Login() {
 
   return (
     <div>
+      <input
+        ref={inputRef}
+        type="text"
+        placeholder="i am learning use ref hook"
+      />
+      <button onClick={handleFocusInput}>Focus Me</button>
+      <br />
       <input
         onChange={(e) =>
           setLoginInfo({

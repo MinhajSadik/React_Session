@@ -15,3 +15,12 @@
 .darkTheme a {
   color: white;
 }
+
+.redTheme {
+  background-color: red;
+  color: white;
+}
+
+.redTheme a {
+  color: white;
+}
