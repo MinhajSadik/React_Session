@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DataContext } from "../../../App";
+import { DataContext } from "../../../contexts/Contexts";
 
 export default function Login() {
   const dataContext = useContext(DataContext);
