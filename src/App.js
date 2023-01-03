@@ -7,6 +7,7 @@ function App() {
   const [showMe, setShowMe] = useState(true)
 
   const [posts, setPosts] = useState([])
+
   const styles = {
     color: "red",
     fontSize: "42px",
