@@ -44,13 +44,13 @@ root.render(
   <App />
 );
 
-const Counter = () => {
-  return (
-    <div>
-      Counter
-    </div>
-  )
-}
+// const Counter = () => {
+//   return (
+//     <div>
+//       Counter
+//     </div>
+//   )
+// }
 
 // MyReact.render(Counter)
 
