@@ -14,7 +14,6 @@ function App() {
       <UserProvider>
         <Layout>
           <Register />
-          <br />
           <Login />
           <Posts />
         </Layout>
