@@ -9,4 +9,4 @@ const Input = forwardRef(({ type, value }, inputRef) => {
   return <input ref={inputRef} type={type} placeholder={value} />;
 });
 
-export default Input;
+export default React.memo(Input);
