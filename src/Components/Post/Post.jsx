@@ -4,7 +4,6 @@ import styles from "./Post.module.css";
 
 export default function Post({ post }) {
   const user = useContext(UserContext);
-  console.log(user);
 
   const { user: userInfo } = user;
 
