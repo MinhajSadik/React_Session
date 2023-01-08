@@ -1,11 +1,16 @@
 import React from "react";
 
-const Button = React.memo(function Button({ children, handleClick }) {
-  console.log(`rendering button ${children}`);
+const Button = React.memo(({ children, handleClick, count, calculation }) => {
   return (
-    <button type="button" onClick={handleClick}>
-      {children}
-    </button>
+    <div>
+      Count: {count}
+      <button type="button" onClick={handleClick}>
+        {children}
+      </button>
+      <h2>Expensive Calculation</h2>
+      {calculation}
+    </div>
   );
 });
+
 export default Button;
