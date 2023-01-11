@@ -1,7 +1,7 @@
 # Times IT React Learning Session
 
 ```day 11 class summary
-1. How to write well component
+1. How to write well component and make page in react
 2. How to convert an html element to an React Component and use multiple time and pass props, state, event handler and also function.
 3. useCallback hook each and everything
 4. useMemo hook everything and and what is React.memo() and how to use it?
