@@ -17,21 +17,35 @@ function App() {
     setCount(prevCount => prevCount - 1);
   }, [])
 
-  const expensiveCalculation = (num) => {
-    console.log("Calculating...");
-    for (let i = 0; i < 1000000000; i++) {
-      num += 1;
-    }
-    return num;
-  }
 
-  const calculation = useMemo(() => expensiveCalculation(count), [count]);
+  const expensiveCalculation = useMemo(() => {
+    console.log("calculating...")
+    let num = 0;
+    for (let i = 0; i < 1000000000; i++) {
+      num += i;
+    }
+
+    return num;
+  }, [])
+
+  // const expensiveCalculation = () => {
+  //   console.log("calculating...")
+  //   let num = 0;
+  //   for (let i = 0; i < 1000000000; i++) {
+  //     num += i;
+  //   }
+
+  //   return num;
+  // }
+
+
   return (
     <div>
       <Input type="text" value="nothing" ref={inputRef} />
       <Title />
+      {expensiveCalculation && count % 2 === 0 ? "even" : "odd"}
       <ShowCount count={count} title="increment" />
-      <Button count={count} handleClick={increment} calculation={calculation}>
+      <Button count={count} handleClick={increment}>
         Increment
       </Button>
       <hr />
