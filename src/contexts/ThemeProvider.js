@@ -8,7 +8,7 @@ export default function ThemeProvider({ children }) {
         theme: theme,
         setTheme: setTheme,
     }
-    
+
     return (
         <ThemeContext.Provider value={themeInfo}>
             {children}
