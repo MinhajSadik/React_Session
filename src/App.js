@@ -9,6 +9,7 @@ function App() {
   const [count, setCount] = React.useState(0);
   const inputRef = useRef()
 
+
   const increment = useCallback(() => {
     setCount(prevCount => prevCount + 1);
   }, [])
@@ -21,7 +22,7 @@ function App() {
   const expensiveCalculation = useMemo(() => {
     console.log("calculating...")
     let num = 0;
-    for (let i = 0; i < 1000000000; i++) {
+    for (let i = 0; i < 10000; i++) {
       num += i;
     }
 
@@ -34,7 +35,6 @@ function App() {
   //   for (let i = 0; i < 1000000000; i++) {
   //     num += i;
   //   }
-
   //   return num;
   // }
 
