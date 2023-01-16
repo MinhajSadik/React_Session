@@ -1,52 +1,54 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useReducer, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Button from './Components/Button/Button';
-import Input from './Components/Input/Input';
-import Counter from './Components/ShowCount';
-import Title from './Components/Title/Title';
-import WellComponent from './Components/WellComponent';
+import About from './Components/About';
+import Contact from './Components/Contact';
+import Dashboard from './Components/Dashboard';
+import Service from './Components/Service';
+import ThemeProvider from './contexts/ThemeProvider';
+import UserProvider from './contexts/UserProvider';
+import Home from './pages/Home';
 
+const initState = 2
+function reducer(state, action) {
+  switch (action) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1
+    default:
+      return state;
+  }
+}
 
 function App() {
-  const inputRef = useRef({
-    value: "inputRef",
-  })
-  const [count, setCount] = React.useState(0);
-  const handleIncrement = useCallback(() => {
-    setCount(count + 1);
-  }, [count])
 
-  const handleDecrement = useCallback(() => {
-    setCount((prevCount) => prevCount - 1);
-  }, [])
-
-  // const expensiveCalculation = useMemo(() => {
-  //   console.log('calculating...');
-
-  //   let num = 0
-  //   for (let i = 0; i < 1000000000; i++) {
-  //     num += i
-  //   }
-  //   return num
-  // }, [])
-
-  // const handleIncrement = () => {
-  //   setCount((prevCount) => prevCount + 1);
-  // }
-  // const handleDecrement = () => {
-  //   setCount((prevCount) => prevCount - 1);
-  // }
+  const [countState, setCount] = useState(0);
+  const [countReducer, dispatch] = useReducer(reducer, initState);
 
   return (
     <>
-      <Input ref={inputRef} />
-      <Title />
-      <WellComponent />
-      <Counter title="counter" count={count} />
-      <Button onClick={handleIncrement}>Increment + </Button>
-      <hr />
-      <Counter title="counter" count={count} />
-      <Button onClick={handleDecrement}>Decrement - </Button>
+      <ThemeProvider>
+        <UserProvider>
+          <div>
+            {countReducer}
+            <button onClick={() => dispatch("increment")}>
+              Increment
+            </button>
+
+          </div>
+
+          <Router>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/service' element={<Service />} />
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/contact/:value' element={<Contact />} />
+            </Routes>
+          </Router>
+        </UserProvider>
+      </ThemeProvider >
     </>
   );
 }

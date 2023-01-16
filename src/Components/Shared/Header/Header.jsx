@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../../assets/proxy.jpg";
 import { ThemeContext, UserContext } from "../../../contexts/contexts";
 import headerModule from "./Header.module.css";
@@ -20,25 +21,27 @@ export default function Header() {
   return (
     <nav className={headerModule.headerWrapper}>
       <div>
-        <a href="/">
+        <Link to="/">
           <img src={Logo} alt="" />
-        </a>
+        </Link>
       </div>
       <ul>
         <li className={headerModule.navItem}>
-          <a href="/about">About</a>
+          <Link to="/about">About</Link>
         </li>
         <li className={headerModule.navItem}>
-          <a href="/service">Services</a>
+          <Link to="/service">Services</Link>
         </li>
         <li className={headerModule.navItem}>
-          <a href="/blog">Blog</a>
+          <Link to="/blog">Blog</Link>
         </li>
-        <li className={headerModule.navItem}>Contact</li>
+        <Link to="/contact/sdaf">
+          <li className={headerModule.navItem}>Contact</li>
+        </Link>
 
         {userInfo?.token && (
           <li className={headerModule.navItem}>
-            <a href="/dashboard">Dashboard</a>
+            <Link to="/dashboard">Dashboard</Link>
           </li>
         )}
       </ul>
