@@ -9,23 +9,52 @@ import ThemeProvider from './contexts/ThemeProvider';
 import UserProvider from './contexts/UserProvider';
 import Home from './pages/Home';
 
-const initState = 2
-const countReducer = (state = 0, action) => {
-  console.log(state)
+const INCREMENT = "increment"
+
+const initState = {
+  counter: 3
+}
+
+const counterReducer = (state, action) => {
+
+  switch (action.type) {
+    case INCREMENT:
+      console.log(action.data);
+      return {
+        counter: state.counter + 2
+      }
+    case "decrement":
+      console.log(action.data)
+      return {
+        counter: state.counter - 1
+      }
+    default:
+      return state
+  }
 }
 
 
 function App() {
-  const [countReducer, dispatch] = useReducer(countReducer, initState)
+  const [count, dispatch] = useReducer(counterReducer, initState)
 
   return (
     <>
       <ThemeProvider>
         <UserProvider>
           <div>
-            {countReducer}
-            <button onClick={() => dispatch("increment")}>
+            {count.counter}
+            <button onClick={() => dispatch({
+              type: "increment",
+              data: "increment"
+            })}>
               Increment
+            </button>
+
+            <button onClick={() => dispatch({
+              type: "decrement",
+              data: "decrement"
+            })}>
+              Decrement
             </button>
 
           </div>
