@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './Components/About';
@@ -10,21 +10,13 @@ import UserProvider from './contexts/UserProvider';
 import Home from './pages/Home';
 
 const initState = 2
-function reducer(state, action) {
-  switch (action) {
-    case "increment":
-      return state + 1;
-    case "decrement":
-      return state - 1
-    default:
-      return state;
-  }
+const countReducer = (state = 0, action) => {
+  console.log(state)
 }
 
-function App() {
 
-  const [countState, setCount] = useState(0);
-  const [countReducer, dispatch] = useReducer(reducer, initState);
+function App() {
+  const [countReducer, dispatch] = useReducer(countReducer, initState)
 
   return (
     <>
