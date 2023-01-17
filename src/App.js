@@ -1,22 +1,32 @@
-import React, { useEffect, useReducer } from 'react';
-import { getPosts } from './actions/postAction';
-import { postsReducer } from './reducers/postReducer';
+import React, { useReducer } from 'react';
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import ThemeProvider from './contexts/ThemeProvider';
+import UserProvider from './contexts/UserProvider';
+
+const initState = 2
+const countReducer = (state = 0, action) => {
+  console.log(state)
+}
 
 
 function App() {
-  const [products, dispatch] = useReducer(postsReducer)
-
-  useEffect(() => {
-    dispatch(getPosts())
-  }, [products])
-
-  console.log({ products })
-
+  const [countReducer, dispatch] = useReducer(countReducer, initState)
 
   return (
-    <div>
+    <>
+      <ThemeProvider>
+        <UserProvider>
 
-    </div>
+
+          <Router>
+            <Routes>
+
+            </Routes>
+          </Router>
+        </UserProvider>
+      </ThemeProvider >
+    </>
   );
 }
 
