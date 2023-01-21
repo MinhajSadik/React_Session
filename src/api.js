@@ -4,7 +4,7 @@ const { REACT_APP_API_URL } = process.env;
 
 
 const API = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://backend-minhajsadik.vercel.app"
 })
 
 API.interceptors.request.use((req,) => {
