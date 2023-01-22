@@ -10,6 +10,7 @@ function Navbar({ loggedInUser }) {
     sessionStorage.removeItem("user");
     navigate("/login");
   }
+
   return (
     <nav style={{ backgroundColor: "black" }} className="sticky top-0 z-50">
       <div className="conainer mx-auto px-4 flex flex-col md:flex-row  justify-start md:justify-between md:items-center">

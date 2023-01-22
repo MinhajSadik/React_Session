@@ -24,18 +24,15 @@ const userReducer = (state, action) => {
 
 export default function Login() {
   const [userInfo, dispatch] = useReducer(userReducer, initialState);
-  console.log({ userInfo });
 
   function handleOnSubmit(e) {
     e.preventDefault();
-    dispatch(
-      loginUser(userInfo).then((data) => {
-        sessionStorage.setItem("user", JSON.stringify(data.data));
-      })
-    );
+    loginUser(userInfo).then((data) => {
+      sessionStorage.setItem("user", JSON.stringify(data.data));
+    });
   }
 
-  function onloginState(e) {
+  function onInputChange(e) {
     const { name, value } = e.target;
     dispatch({ type: loginState, payload: { name, value } });
   }
@@ -49,27 +46,22 @@ export default function Login() {
               Login an account
             </p>
           </div>
-          {/* <!-- Email input --> */}
           <div className="mb-6">
             <input
               type="email"
               name="email"
               required
-              //   value={email}
-              onChange={onloginState}
+              onChange={onInputChange}
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Email address"
             />
           </div>
-
-          {/* <!-- Password input --> */}
           <div className="mb-6">
             <input
               type="password"
               name="password"
               required
-              //   value={password}
-              onChange={onloginState}
+              onChange={onInputChange}
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Password"
             />
