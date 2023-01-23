@@ -1,6 +1,7 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getQuizById } from "../../api";
+import useMyReducer from "../../Hooks/useMyReducer";
 import classes from "../../styles/QuizDetails.module.css";
 import { QUIZ_REQUEST_BY_ID } from "../../types";
 
@@ -17,7 +18,7 @@ function quizReducer(state = initState, action) {
   }
 }
 export default function QuizDetails() {
-  const [singleQuiz, dispatch] = useReducer(quizReducer, initState);
+  const [singleQuiz, dispatch] = useMyReducer(quizReducer, initState);
   const { quiz } = singleQuiz;
   const duration_type = quiz.duration === "question_based";
   const answer_type = quiz.answerType === "question_based";

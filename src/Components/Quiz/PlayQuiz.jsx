@@ -6,6 +6,7 @@ import QuizResult from "./QuizResult";
 
 export default function PlayQuiz() {
   const quiz = JSON.parse(localStorage.getItem("quiz"));
+
   const length = quiz.questions.length;
   const [index, setIndex] = React.useState(0);
   const [answer, setAnswer] = useState([]);
@@ -14,7 +15,6 @@ export default function PlayQuiz() {
   const [showNext, setShowNext] = useState(false);
   const [timeStart, setTimeStart] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
-
   const { user } = JSON.parse(sessionStorage.getItem("user"));
   const admin = user.role === "admin";
   const question_based = quiz.answerType === "question_based";
