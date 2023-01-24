@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import QuizTimer from "../../customs/QuizTimer";
@@ -6,7 +6,6 @@ import QuizResult from "./QuizResult";
 
 export default function PlayQuiz() {
   const quiz = JSON.parse(localStorage.getItem("quiz"));
-
   const length = quiz.questions.length;
   const [index, setIndex] = React.useState(0);
   const [answer, setAnswer] = useState([]);
@@ -19,10 +18,26 @@ export default function PlayQuiz() {
   const admin = user.role === "admin";
   const question_based = quiz.answerType === "question_based";
 
-  const handleNext = () => {};
+  useEffect(() => {
+    setTimeStart(true);
+    setShowAnswer(false);
+    setShowNext(false);
+  }, [index]);
 
-  const handleSubmit = () => {};
+  const handleNext = () => {
+    if (length - 1 === index) {
+      setSubmitQuiz(true);
+    } else {
+      setTimeStart(false);
+      setIndex((prevIndex) => prevIndex + 1);
+    }
+  };
 
+  const handleSubmit = () => {
+    setShowResult(true);
+  };
+
+  console.log(showResult);
   return (
     <div>
       <div className=" w-11/12 h-96 pt-5 mt-5 bg-white">

@@ -8,6 +8,7 @@ import { QUIZ_REQUEST_BY_ID } from "../../types";
 const initState = {
   quiz: {},
 };
+
 function quizReducer(state = initState, action) {
   switch (action.type) {
     case QUIZ_REQUEST_BY_ID:

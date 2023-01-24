@@ -1,7 +1,8 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { loginUser } from "../../api";
 import ModalView from "../../customs/ModalView";
+import useMyReducer from "../../Hooks/useMyReducer";
 
 const initialState = {
   email: "",
@@ -23,7 +24,7 @@ const userReducer = (state, action) => {
 };
 
 export default function Login() {
-  const [userInfo, dispatch] = useReducer(userReducer, initialState);
+  const [userInfo, dispatch] = useMyReducer(userReducer, initialState);
 
   function handleOnSubmit(e) {
     e.preventDefault();
