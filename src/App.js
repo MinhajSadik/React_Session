@@ -1,6 +1,6 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import './App.css';
-import { useCopyToClipboard } from './hooks/useCopyToClipboard';
+import { useMyReducer } from './hooks/useMyReducer';
 
 const initState = {
   count: 0,
@@ -28,22 +28,19 @@ function counterReducer(state, action) {
       return state
   }
 }
+
 function App() {
-  const [copy, copyStatus] = useCopyToClipboard("Oigese", 2500)
-  const [counter, dispatch] = useReducer(counterReducer, initState)
+  const [counter, dispatch] = useMyReducer(counterReducer, initState)
 
   function onInputChange(e) {
-    const { name, value } = e.target
-    dispatch({ type: "INPUT_CHANGE", payload: { name, value } })
+    const { value } = e.target
+    dispatch({ type: "INPUT_CHANGE", payload: { value } })
   }
 
-  console.log(counter)
 
   return (
     <div>
-      <button onClick={copyStatus}>
-        <span>{copy}</span>
-      </button>
+      {counter.text}
       <input type="text" onChange={onInputChange} />
       {counter.count}
       <br />
